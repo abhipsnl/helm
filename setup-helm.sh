@@ -29,7 +29,7 @@ display() {
 }
  setup_helm() {
     display "Creating \"tiller\" service account om kube-system namespace" "INFO"
-    kubectl create service account -n kube-system tiller
+    kubectl create serviceaccount -n kube-system tiller
     if [ $? -ne 0 ];then
         display "Failed while creating service account for tiller" "ERROR"
         exit 1
