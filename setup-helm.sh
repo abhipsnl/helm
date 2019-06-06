@@ -17,13 +17,13 @@ display() {
     ACTION="$2"
     case $ACTION in
     INFO)
-        printf "%20s${MSG}%80s [ INFO ]"
+        printf "%20s${MSG}%80s [ INFO ]${NORM}\n"
     ;;
     ERROR) 
-        printf "${RED_CODE} %20s${MSG}%80s [ ERROR ] ${NORM_CODE}"
+        printf "${RED_CODE} %20s${MSG}%80s [ ERROR ] ${NORM_CODE}\n"
     ;;
     OK)
-        printf "${GREEN_CODE} %20s${MSG}%80s [ OK ] ${NORM_CODE}"
+        printf "${GREEN_CODE} %20s${MSG}%80s [ OK ] ${NORM_CODE}\n"
     ;;
     esac
 }
@@ -48,7 +48,7 @@ display() {
         exit 1
     fi
     display "Successfully setup helm" "OK"
-
+    kubectl --namespace kube-system get pods | grep tiller
 }
 
 # Main
