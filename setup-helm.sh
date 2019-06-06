@@ -12,7 +12,7 @@ RED_CODE="\033[31m"
 
 # User defined functions
 
-function display() {
+display() {
     MSG="$1"
     ACTION="$2"
     case $ACTION in
@@ -27,8 +27,7 @@ function display() {
     ;;
     esac
 }
-
-function setup_helm() {
+ setup_helm() {
     display "Creating \"tiller\" service account om kube-system namespace" "INFO"
     kubectl create service account -n kube-system tiller
     if [ $? -ne 0 ];then
